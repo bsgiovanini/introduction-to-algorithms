@@ -12,6 +12,7 @@ public class PercolationStats {
             throw new IllegalArgumentException();
         }
 
+
         this.thresholds = new double[trials];
 
         for (int t = 0; t < trials; t++) {

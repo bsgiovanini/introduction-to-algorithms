@@ -109,9 +109,10 @@ public class Percolation {
                 if (neighbor >= 0 && this.isOpen(neighbor)) {
                     
                     wquuf.union(index, neighbor);
-                    if (neighbor <= this.num) {
+                    if (neighbor <= this.num) {add
                         wquufbw.union(index, neighbor);
                     }
+                    
                 }
                 
             }
