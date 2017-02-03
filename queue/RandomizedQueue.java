@@ -45,7 +45,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             int index = indexes[current];
             current++;
 
-            return (Item) array[index];
+            return array[index];
         }
         
        public void remove() {
@@ -54,7 +54,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
        
     }
     
-    Item[] array;
+    private Item[] array;
 
 
    public RandomizedQueue() {
@@ -80,7 +80,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
            capacity = capacity * 2;
            resizeQueue();
        }
-       System.out.println(this.head +" "+ capacity );
        array[this.head] = item;
         
    }         // add the item
@@ -104,7 +103,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
        array[index] = array[this.head];
        this.head--;
        
-       if (this.head <= capacity/4 && capacity >= INITIAL_CAPACITY) {
+       if (this.head < capacity/4 && capacity >= INITIAL_CAPACITY) {
            capacity = capacity/2;
            resizeQueue();
        }
@@ -114,6 +113,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
    }     // remove and return a random item
    
    public Item sample() {
+       if (isEmpty()) {
+           throw new java.util.NoSuchElementException();
+       }
         return array[StdRandom.uniform(size())];  
    }    // return (but do not remove) a random item
    
@@ -228,7 +230,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             assert failed == true;
         }
         
-        deque = new RandomizedQueue();
+        deque = new RandomizedQueue<>();
         
         deque.enqueue(1);
         deque.enqueue(2);

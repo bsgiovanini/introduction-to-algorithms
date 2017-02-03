@@ -237,7 +237,7 @@ public class Deque<Item> implements Iterable<Item> {
             assert failed == true;
         }
         
-        deque = new Deque();
+        deque = new Deque<>();
         
         deque.addLast(1);
         deque.addLast(2);
